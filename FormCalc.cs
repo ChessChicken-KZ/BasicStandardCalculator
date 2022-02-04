@@ -36,11 +36,11 @@
 
             this.calculationLabel.BackColor = Color.White;
             this.calculationLabel.Text = "";
-            this.calculationTab.Text = "0";
+            this.calculationTab.Text = "";
         }
 
         private void handleClear(object sender, EventArgs e) {
-            this.calculationTab.Text = "0";
+            this.calculationTab.Text = "";
             this.firstValue.Clean();
             this.secondValue.Clean();
             this.current = 0;
@@ -53,6 +53,9 @@
         }
 
         private void handleMemory(object sender, EventArgs args) {
+            if (this.calculationTab.Text.Length < 1)
+                return;
+
             string s = ((Button)sender).Text.Remove(0, 1);
 
             if (s.Equals("RC"))
@@ -71,6 +74,9 @@
         }
 
         private void handleOperation(object sender, EventArgs e) {
+            if (this.calculationTab.Text.Length < 1)
+                return;
+
             if(this.current == 0 || this.current == 255) {
                 if (this.current == 255)
                     this.secondValue.Clean();
@@ -92,8 +98,9 @@
         }
 
         private void handleEquals(object sender, EventArgs e) {
-            if (current == 0)
+            if (current == 0 || this.calculationTab.Text.Length < 1)
                 return;
+
             this.secondValue.SetValue(double.Parse(this.calculationTab.Text));
             this.updateLabel();
             this.calculationTab.Text = CalculationUtils.processVars(this.firstValue.Value(), this.secondValue.Value(), this.current).ToString();
