@@ -34,6 +34,10 @@
 
         private void initComponent(object sender, EventArgs e)
         {
+            this.debugStrip.Visible = false;
+            this.debugTimer.Interval = 1000;
+            this.debugTimer.Stop();
+
             this.calculationLabel.BackColor = Color.White;
             this.calculationLabel.Text = "";
             this.calculationTab.Text = "0";
@@ -77,9 +81,28 @@
             this.current = 255;
         }
 
-        private void eventAboutMe(object sender, EventArgs e)
+        private void toggleDebugMode(object sender, EventArgs e)
         {
-            new AboutBox().Show();
+            this.debugStrip.Visible = !this.debugStrip.Visible;
+            if (this.debugStrip.Visible)
+                this.debugTimer.Start();
+            else
+                this.debugTimer.Stop();
+        }
+
+        private void debugTicking(object sender, EventArgs e)
+        {
+            this.debugLabel.Text =
+                "C: " + this.current.ToString() +
+                " ; F: " + this.firstValue.Value().ToString() +
+                " ; S: " + this.secondValue.Value().ToString() +
+                " ; MRC: " + this.mrcValue.Value().ToString();
+        }
+
+        private void eventAbout(object sender, EventArgs e)
+        {
+            this.current = 255;
+            this.calculationTab.Text = "Basic Standart Calculator! https://github.com/ChessChicken-KZ/BasicStandardCalculator";
         }
     }
 }
