@@ -40,7 +40,7 @@
         }
 
         private void handleClear(object sender, EventArgs e) {
-            this.calculationTab.Clear();
+            this.calculationTab.Text = "0";
             this.firstValue.Clean();
             this.secondValue.Clean();
             this.current = 0;
