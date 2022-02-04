@@ -9,4 +9,8 @@
     <StartupObject>BasicStandardCalculator.Program</StartupObject>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="NumberContainer.cs~RF4a80706f.TMP" />
+  </ItemGroup>
+
 </Project>

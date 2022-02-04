@@ -61,7 +61,8 @@
             this.debugLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.debugTimer = new System.Windows.Forms.Timer(this.components);
             this.buttonSqrt = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonPlusMinus = new System.Windows.Forms.Button();
+            this.labelMemory = new System.Windows.Forms.Label();
             this.mainMenuStrip.SuspendLayout();
             this.debugStrip.SuspendLayout();
             this.SuspendLayout();
@@ -406,23 +407,34 @@
             this.buttonSqrt.UseVisualStyleBackColor = true;
             this.buttonSqrt.Click += new System.EventHandler(this.handleOperation);
             // 
-            // button1
+            // buttonPlusMinus
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(13, 404);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 69);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "+/-";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.handlePlusMinus);
+            this.buttonPlusMinus.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonPlusMinus.Location = new System.Drawing.Point(13, 404);
+            this.buttonPlusMinus.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonPlusMinus.Name = "buttonPlusMinus";
+            this.buttonPlusMinus.Size = new System.Drawing.Size(70, 69);
+            this.buttonPlusMinus.TabIndex = 25;
+            this.buttonPlusMinus.Text = "+/-";
+            this.buttonPlusMinus.UseVisualStyleBackColor = true;
+            this.buttonPlusMinus.Click += new System.EventHandler(this.handlePlusMinus);
+            // 
+            // labelMemory
+            // 
+            this.labelMemory.AutoSize = true;
+            this.labelMemory.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelMemory.Location = new System.Drawing.Point(370, 35);
+            this.labelMemory.Name = "labelMemory";
+            this.labelMemory.Size = new System.Drawing.Size(22, 20);
+            this.labelMemory.TabIndex = 26;
+            this.labelMemory.Text = "M";
             // 
             // FormCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 486);
+            this.Controls.Add(this.labelMemory);
             this.Controls.Add(this.buttonSqrt);
             this.Controls.Add(this.debugStrip);
             this.Controls.Add(this.buttonEquals);
@@ -448,7 +460,7 @@
             this.Controls.Add(this.calculationTab);
             this.Controls.Add(this.calculationLabel);
             this.Controls.Add(this.mainMenuStrip);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonPlusMinus);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.mainMenuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -498,7 +510,8 @@
         private ToolStripStatusLabel debugLabel;
         private System.Windows.Forms.Timer debugTimer;
         private Button buttonSqrt;
-        private Button button1;
+        private Button buttonPlusMinus;
+        private Label labelMemory;
     }
 }
 

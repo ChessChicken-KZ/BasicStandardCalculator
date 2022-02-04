@@ -1,7 +1,8 @@
-﻿namespace BasicStandardCalculator
-{
-    internal class NumberContainer
-    {
+﻿namespace BasicStandardCalculator {
+    /// <summary>
+    /// Used for containing numeric variable  with state.
+    /// </summary>
+    internal class NumberContainer {
         private double _value = 0.0D;
 
         /*
@@ -10,25 +11,21 @@
          */
         private byte _state = 0;
 
-        public void SetValue(double d)
-        {
+        public void SetValue(double d) {
             this._value = d;
             this._state = 1;
         }
 
-        public void Clean()
-        {
+        public void Clean() {
             this._value = 0.0D;
             this._state = 0;
         }
 
-        public double Value()
-        {
+        public double Value() {
             return _value;
         }
 
-        public bool State()
-        {
+        public bool State()  {
             return _state == 1;
         }
     }
