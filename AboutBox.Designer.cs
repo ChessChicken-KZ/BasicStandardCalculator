@@ -151,6 +151,7 @@
             this.okButton.Size = new System.Drawing.Size(88, 27);
             this.okButton.TabIndex = 24;
             this.okButton.Text = "&OK";
+            this.okButton.Click += new System.EventHandler(this.eventCloseForm);
             // 
             // AboutBox
             // 
@@ -169,7 +170,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AboutBox";
-            this.Load += new System.EventHandler(this.AboutBox_Load);
+            this.Load += new System.EventHandler(this.eventLoadInformation);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();

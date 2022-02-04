@@ -1,14 +1,11 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-
-namespace BasicStandardCalculator
+﻿namespace BasicStandardCalculator
 {
     public partial class FormCalc : Form
     {
         private NumberContainer firstValue = new NumberContainer();
         private NumberContainer secondValue = new NumberContainer();
         private NumberContainer mrcValue = new NumberContainer();
+
         /*
          * 0 - Not
          * 1 - Plus

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace BasicStandardCalculator
+﻿namespace BasicStandardCalculator
 {
     partial class AboutBox : Form
     {
@@ -10,9 +7,14 @@ namespace BasicStandardCalculator
             InitializeComponent();
         }
 
-        private void AboutBox_Load(object sender, EventArgs e)
+        private void eventLoadInformation(object sender, EventArgs e)
         {
 
+        }
+
+        private void eventCloseForm(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
