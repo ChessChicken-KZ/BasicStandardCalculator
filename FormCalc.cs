@@ -39,7 +39,7 @@
             this.calculationTab.Text = "0";
         }
 
-        private void eventCE(object sender, EventArgs e) {
+        private void handleClear(object sender, EventArgs e) {
             this.calculationTab.Clear();
             this.firstValue.Clean();
             this.secondValue.Clean();
@@ -48,8 +48,26 @@
         }
         
         private void handleObject(object sender, EventArgs args) {
-            if(this.current == 255) eventCE(sender, args);
+            if(this.current == 255) handleClear(sender, args);
             this.calculationTab.AppendText(((Button)sender).Text);
+        }
+
+        private void handleMemory(object sender, EventArgs args) {
+            string s = ((Button)sender).Text.Remove(0, 1);
+
+            if (s.Equals("RC"))
+                this.calculationTab.Text = mrcValue.Value().ToString();
+            else {
+                double d = (s == "-" ? -1 : 1) * double.Parse(this.calculationTab.Text);
+                if (mrcValue.Value().Equals(d)) {
+                    mrcValue.Clean();
+                    this.labelMemory.Visible = false;
+                } else {
+                    mrcValue.SetValue(d);
+                    this.labelMemory.Visible = true;
+                }
+            }
+
         }
 
         private void handleOperation(object sender, EventArgs e) {
@@ -82,6 +100,12 @@
             this.current = 255;
         }
 
+        private void handlePlusMinus(object sender, EventArgs e) {
+            try {
+                this.calculationTab.Text = double.Parse(this.calculationTab.Text) > 0 ? this.calculationTab.Text.Insert(0, "-") : this.calculationTab.Text.Remove(0, 1);
+            } catch (FormatException) { }
+        }
+
         private void toggleDebugMode(object sender, EventArgs e) {
             this.debugStrip.Visible = !this.debugStrip.Visible;
             if (this.debugStrip.Visible)
@@ -90,7 +114,7 @@
                 this.debugTimer.Stop();
         }
 
-        private void debugTicking(object sender, EventArgs e) {
+        private void handleDebugTicking(object sender, EventArgs e) {
             this.debugLabel.Text =
                 "C: " + this.current.ToString() +
                 " ; F: " + this.firstValue.Value().ToString() +
@@ -99,15 +123,9 @@
                 " ; MRC: " + this.mrcValue.Value().ToString();
         }
 
-        private void eventAbout(object sender, EventArgs e) {
+        private void toggleAboutInfo(object sender, EventArgs e) {
             this.current = 255;
             this.calculationTab.Text = "Basic Standart Calculator! https://github.com/ChessChicken-KZ/BasicStandardCalculator";
-        }
-
-        private void handlePlusMinus(object sender, EventArgs e) {
-            try {
-                this.calculationTab.Text = double.Parse(this.calculationTab.Text) > 0 ? this.calculationTab.Text.Insert(0, "-") : this.calculationTab.Text.Remove(0, 1);
-            } catch(FormatException) { }
         }
     }
 }

@@ -98,7 +98,7 @@
             this.buttonClear.TabIndex = 2;
             this.buttonClear.Text = "CE";
             this.buttonClear.UseVisualStyleBackColor = true;
-            this.buttonClear.Click += new System.EventHandler(this.eventCE);
+            this.buttonClear.Click += new System.EventHandler(this.handleClear);
             // 
             // buttonMemory
             // 
@@ -110,6 +110,7 @@
             this.buttonMemory.TabIndex = 3;
             this.buttonMemory.Text = "MRC";
             this.buttonMemory.UseVisualStyleBackColor = true;
+            this.buttonMemory.Click += new System.EventHandler(this.handleMemory);
             // 
             // buttonMemPlus
             // 
@@ -121,6 +122,7 @@
             this.buttonMemPlus.TabIndex = 4;
             this.buttonMemPlus.Text = "M+";
             this.buttonMemPlus.UseVisualStyleBackColor = true;
+            this.buttonMemPlus.Click += new System.EventHandler(this.handleMemory);
             // 
             // buttonMemMinus
             // 
@@ -132,6 +134,7 @@
             this.buttonMemMinus.TabIndex = 5;
             this.buttonMemMinus.Text = "M-";
             this.buttonMemMinus.UseVisualStyleBackColor = true;
+            this.buttonMemMinus.Click += new System.EventHandler(this.handleMemory);
             // 
             // buttonClick7
             // 
@@ -351,7 +354,7 @@
             this.cECleanToolStripMenuItem.Name = "cECleanToolStripMenuItem";
             this.cECleanToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.cECleanToolStripMenuItem.Text = "CE/Clean";
-            this.cECleanToolStripMenuItem.Click += new System.EventHandler(this.eventCE);
+            this.cECleanToolStripMenuItem.Click += new System.EventHandler(this.handleClear);
             // 
             // debugModeToolStripMenuItem
             // 
@@ -373,7 +376,7 @@
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem1.Text = "About";
-            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.eventAbout);
+            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.toggleAboutInfo);
             // 
             // debugStrip
             // 
@@ -393,7 +396,7 @@
             // 
             // debugTimer
             // 
-            this.debugTimer.Tick += new System.EventHandler(this.debugTicking);
+            this.debugTimer.Tick += new System.EventHandler(this.handleDebugTicking);
             // 
             // buttonSqrt
             // 
