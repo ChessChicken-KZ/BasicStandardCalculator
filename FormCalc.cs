@@ -64,10 +64,21 @@
             {
                 if (this.current == 255)
                     this.secondValue.Clean();
+
                 this.firstValue.SetValue(double.Parse(this.calculationTab.Text));
                 this.current = CalculationUtils.processString(((Button)sender).Text);
                 this.calculationTab.Text = "";
+
+                if (this.current == 5) {
+                    this.calculationTab.Text = CalculationUtils.processVars(this.firstValue.Value(), this.secondValue.Value(), this.current).ToString();
+                    this.current = 255;
+                }
+
                 this.updateLabel();
+            }else
+            {
+                this.handleEquals(sender, e);
+                this.handleOperation(sender, e);
             }
         }
 
@@ -96,6 +107,7 @@
                 "C: " + this.current.ToString() +
                 " ; F: " + this.firstValue.Value().ToString() +
                 " ; S: " + this.secondValue.Value().ToString() +
+                " ; CTT: " + this.calculationTab.Text +
                 " ; MRC: " + this.mrcValue.Value().ToString();
         }
 
@@ -103,6 +115,15 @@
         {
             this.current = 255;
             this.calculationTab.Text = "Basic Standart Calculator! https://github.com/ChessChicken-KZ/BasicStandardCalculator";
+        }
+
+        private void handlePlusMinus(object sender, EventArgs e)
+        {
+            try
+            {
+                this.calculationTab.Text = double.Parse(this.calculationTab.Text) > 0 ? this.calculationTab.Text.Insert(0, "-") : this.calculationTab.Text.Remove(0, 1);
+            }
+            catch(FormatException) { }
         }
     }
 }

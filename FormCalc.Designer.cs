@@ -60,6 +60,8 @@
             this.debugStrip = new System.Windows.Forms.StatusStrip();
             this.debugLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.debugTimer = new System.Windows.Forms.Timer(this.components);
+            this.buttonSqrt = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.mainMenuStrip.SuspendLayout();
             this.debugStrip.SuspendLayout();
             this.SuspendLayout();
@@ -368,7 +370,7 @@
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.eventAbout);
             // 
@@ -392,11 +394,36 @@
             // 
             this.debugTimer.Tick += new System.EventHandler(this.debugTicking);
             // 
+            // buttonSqrt
+            // 
+            this.buttonSqrt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSqrt.Location = new System.Drawing.Point(13, 176);
+            this.buttonSqrt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonSqrt.Name = "buttonSqrt";
+            this.buttonSqrt.Size = new System.Drawing.Size(70, 69);
+            this.buttonSqrt.TabIndex = 24;
+            this.buttonSqrt.Text = "SQRT";
+            this.buttonSqrt.UseVisualStyleBackColor = true;
+            this.buttonSqrt.Click += new System.EventHandler(this.handleOperation);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(13, 404);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(70, 69);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "+/-";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.handlePlusMinus);
+            // 
             // FormCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 486);
+            this.Controls.Add(this.buttonSqrt);
             this.Controls.Add(this.debugStrip);
             this.Controls.Add(this.buttonEquals);
             this.Controls.Add(this.buttonClickPoint);
@@ -421,6 +448,7 @@
             this.Controls.Add(this.calculationTab);
             this.Controls.Add(this.calculationLabel);
             this.Controls.Add(this.mainMenuStrip);
+            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.mainMenuStrip;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -469,6 +497,8 @@
         private StatusStrip debugStrip;
         private ToolStripStatusLabel debugLabel;
         private System.Windows.Forms.Timer debugTimer;
+        private Button buttonSqrt;
+        private Button button1;
     }
 }
 
