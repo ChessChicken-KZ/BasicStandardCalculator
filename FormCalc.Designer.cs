@@ -87,6 +87,7 @@
             this.calculationTab.ReadOnly = true;
             this.calculationTab.Size = new System.Drawing.Size(380, 27);
             this.calculationTab.TabIndex = 1;
+            this.calculationTab.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.handleKeyboardPress);
             // 
             // buttonClear
             // 
@@ -276,7 +277,7 @@
             this.buttonMultiply.Name = "buttonMultiply";
             this.buttonMultiply.Size = new System.Drawing.Size(70, 69);
             this.buttonMultiply.TabIndex = 17;
-            this.buttonMultiply.Text = "x";
+            this.buttonMultiply.Text = "*";
             this.buttonMultiply.UseVisualStyleBackColor = true;
             this.buttonMultiply.Click += new System.EventHandler(this.handleOperation);
             // 
